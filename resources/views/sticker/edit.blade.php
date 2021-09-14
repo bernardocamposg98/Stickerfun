@@ -55,12 +55,22 @@
                     </div>
 
                     <!-- Para ver la imagen seleccionada, de lo contrario no se -->
+                    
                     <div class="grid grid-cols-1 mt-5 mx-7">
-                        {{-- <img id="imagenSeleccionada" style="max-height: 300px;">            --}}
-                        <img src="/imagestickerfree/{{ $sticker->tray_image_file }}" width="100px" id="imagenSeleccionada">
+                        <label class="uppercase md:text-sm text-xs text-gray-500 text-black font-semibold mb-1">Upload Sticker</label>
                     </div>
-
-                    <div class="grid grid-cols-1 mt-5 mx-7">
+                    <div class="overflow-hidden grid grid-cols-4 mt-5 mx-7">
+                        <button class="bg-indigo hover:bg-indigo-dark text-white font-bold py-2 px-4 w-full inline-flex items-center">
+                            <svg fill="#FFF" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                            </svg>
+                            <span class="ml-2">Upload File</span>
+                        </button>
+                        <input class="cursor-pointer absolute block opacity-0 pin-r pin-t" accept=".png" name="tray_image_file" id="imagen" type='file'/>
+                        <img src="/imagestickerfree/{{ $sticker->tray_image_file }}" width="50px" id="imagenSeleccionada">
+                    </div>
+                    {{-- <div class="grid grid-cols-1 mt-5 mx-7">
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-black font-semibold mb-1">Upload Sticker</label>
                         <div class='flex items-center justify-center w-full'>
                             <label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
@@ -71,7 +81,7 @@
                             <input name="tray_image_file" id="imagen" type='file' class="hidden" />
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
                         <a href="{{ route('stickers.index') }}" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancelar</a>

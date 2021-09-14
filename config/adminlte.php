@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Stickers</b>Fun',
+    'logo' => '<b>StickerFUN</b>',
     'logo_img' => '',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -67,7 +67,7 @@ return [
     'usermenu_enabled' => true,
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => true,
+    'usermenu_image' => false,
     'usermenu_desc' => true,
     'usermenu_profile_url' => false,
 

@@ -52,13 +52,13 @@
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-1 mt-5 mx-7">
+                    {{-- <div class="grid grid-cols-1 mt-5 mx-7">
                         <img id="imagenSeleccionada"  width="100px" >           
                     </div>
                     <div class="grid grid-cols-1 mt-5 mx-7">
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-black font-semibold mb-1">Upload Sticker</label>
-                        <input name="tray_image_file" id="imagen" type='file'/>
-                    </div>
+                        <input accept=".png" name="tray_image_file" id="imagen" type='file'/>
+                    </div> --}}
 
                     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
                         <a href="{{ route('stickers.index') }}" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancelar</a>

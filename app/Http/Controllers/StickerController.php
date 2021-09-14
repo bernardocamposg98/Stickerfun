@@ -33,19 +33,19 @@ class StickerController extends Controller
             'name' => 'required',
             'publisher' => 'required',
             'description' => 'required',
-            'tray_image_file' => 'required|image|mimes:jpeg,png,svg',
+            // 'tray_image_file' => 'required|image|mimes:jpeg,png,svg',
             'publisher_email' => 'required',
             'publisher_website' => 'required'
         ]);
 
         $sticker = $request->all();
        
-        if($image = $request->file('tray_image_file')) {
-            $ruteSaveImg = 'imagestickerfree/';
-            $imageSticker = date('YmdHis'). "." . $image->getClientOriginalExtension();
-            $image->move($ruteSaveImg, $imageSticker);
-            $sticker['tray_image_file'] = "$imageSticker";
-        }
+        // if($image = $request->file('tray_image_file')) {
+        //     $ruteSaveImg = 'imagestickerfree/';
+        //     // $imageSticker = date('YmdHis'). "." . $image->getClientOriginalExtension();
+        //     $image->move($ruteSaveImg, $imageSticker);
+        //     $sticker['tray_image_file'] = "$imageSticker";
+        // }
         
         Sticker::create($sticker);
         return redirect('/stickers');
@@ -75,19 +75,26 @@ class StickerController extends Controller
         
         
         if($image = $request->file('tray_image_file')) {
+            if($sticker->tray_image_file != ""){
                 $destination = public_path('imagestickerfree/'.$sticker->tray_image_file);
                 if(file_exists($destination)){
                         unlink($destination);
+                   
                 }
+            }
+                // $destination = public_path('imagestickerfree/'.$sticker->tray_image_file);
+                // if(file_exists($destination)){
+                //         unlink($destination);
+                   
+                // }
             $ruteSaveImg = 'imagestickerfree/';
-            // $imageSticker = date('YmdHis'). "." . $image->getClientOriginalExtension();
             $imageSticker = "Sticker" . $sticker->id . "." . $image->getClientOriginalExtension();
             $image->move($ruteSaveImg, $imageSticker);
             $sti['tray_image_file'] = "$imageSticker";
         } else {
             unset($sti['tray_image_file']);
         }
-        $sticker->update($sti);
+        $sticker->update($sti); 
         return redirect()->route('stickers.index');
     }
 
